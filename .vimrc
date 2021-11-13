@@ -86,7 +86,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'thosakwe/vim-flutter' 
     Plug 'natebosch/vim-lsc'
     Plug 'natebosch/vim-lsc-dart'
-    call plug#end()
+    Plug 'https://github.com/907th/vim-auto-save.git'
+    Plug 'https://github.com/vim-syntastic/syntastic.git'
+    Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
+call plug#end()
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
 
@@ -100,26 +103,8 @@ autocmd FileType c map <buffer>  <F5>  :w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
 autocmd FileType c  imap <buffer> <F5>  <esc>:w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
 
 
-
-
-highlight Pmenu ctermbg=gray guibg=gray
-"hi Normal guibg=NONE ctermbg=NONE
-function! ToggleGUICruft()
-  if &guioptions=='i'
-    exec('set guioptions=imTrL')
-  else
-    exec('set guioptions=i')
-  endif
-endfunction
-set nobackup
-set noswapfile
-set noundofile 
-map <F11> <Esc>:call ToggleGUICruft()<cr>
-
-set guioptions=i
-map <silent> <C-q> :q!<CR>
-set nobackup nowritebackup
-
+map <F8> : !gcc % &&  echo file compiled<CR>
+map <F10> : !g++ % &&  echo file compiled<CR>
 let g:coc_global_extensions =[
   \ 'coc-pairs',
   \ 'coc-eslint',
@@ -134,14 +119,33 @@ let g:coc_global_extensions =[
   \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-java',
+  \ 'coc-vimtex',
   \ 'coc-flutter',
   \ 'coc-clangd',
   \ 'coc-marketplace',
-  \'coc-sumneko-lua',
-  \'coc-vimlsp',
-  \'coc-webview',
-  \'coc-yank',
-  \'coc-markdownlint']
+  \ 'coc-webview',
+  \ 'coc-tailwindcss',
+  \ 'coc-markdownlint',
+  \ 'coc-python',
+  \ 'coc-rls']
+
+
+"highlight Pmenu ctermbg=gray guibg=gray
+"hi Normal guibg=NONE ctermbg=NONE
+
+
+function! ToggleGUICruft()
+  if &guioptions=='i'
+    exec('set guioptions=imTrL')
+  else
+    exec('set guioptions=i')
+  endif
+endfunction
+map <F11> <Esc>:call ToggleGUICruft()<cr>
+
+set guioptions=i
+map <silent> <C-q> :q!<CR>
+
 
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
@@ -149,6 +153,7 @@ set updatetime=300
 let g:jsx_ext_required = 1
 let g:jsx_pragma_required = 1
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 "--------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -179,9 +184,8 @@ nmap <leader>n :NERDTree<cr>
 nmap <leader>q :q<cr>
 nmap <leader>p "+gP<cr>
 nmap <leader>sq  :wq!<cr>
-nmap <leader>c "+y<cr>
+nmap <leader>,  :w!<cr>
 
-set guifont=Consolas:h13
 
 set belloff=all
 autocmd GUIEnter * set vb t_vb=
@@ -195,7 +199,32 @@ set completefunc=tailwind#complete
 nnoremap <leader>tt :set completefunc=tailwind#complete<cr>
 autocmd CompleteDone * pclose
 
+set guifont=consolas:h12
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme dracula
+colorscheme monokai
+
+set nowritebackup
+set nobackup
+set noswapfile
+set noundofile
+set noswapfile
+set nobackup
+set nobackup nowritebackup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 0
+augroup ft_markdown
+  au!
+  au FileType markdown let b:auto_save = 1
+augroup END
+" Italics for my favorite color scheme
+let g:palenight_terminal_italics=1
