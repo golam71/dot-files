@@ -96,8 +96,8 @@ autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescap
 autocmd FileType javascript  map <buffer> <F5> :w<CR>:exec '!node' shellescape(@%, 1)<CR>
 autocmd FileType javascript imap <buffer> <F5> <esc>:w<CR>:exec '!node' shellescape(@%, 1)<CR>
 
-autocmd FileType cpp map <buffer>  <F5>  :w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
-autocmd FileType cpp  imap <buffer> <F5>  <esc>:w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
+autocmd FileType cpp map <buffer>  <F5>  :w<CR>:exec '!g++' shellescape(@%, 1)<CR>
+autocmd FileType cpp  imap <buffer> <F5>  <esc>:w<CR>:exec '!g++' shellescape(@%, 1)<CR>
 
 autocmd FileType c map <buffer>  <F5>  :w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
 autocmd FileType c  imap <buffer> <F5>  <esc>:w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
@@ -185,6 +185,7 @@ nmap <leader>q :q<cr>
 nmap <leader>p "+gP<cr>
 nmap <leader>sq  :wq!<cr>
 nmap <leader>,  :w!<cr>
+nmap <leader>t  term<cr>
 
 
 set belloff=all
@@ -203,7 +204,7 @@ set guifont=consolas:h12
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-colorscheme monokai
+colorscheme gruvbox
 
 set nowritebackup
 set nobackup
@@ -221,10 +222,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save = 0
 augroup ft_markdown
   au!
   au FileType markdown let b:auto_save = 1
 augroup END
-" Italics for my favorite color scheme
 let g:palenight_terminal_italics=1
+set splitbelow
