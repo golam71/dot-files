@@ -50,6 +50,29 @@ set mouse=a
 set guicursor=n-v-c-sm:block,
 set list listchars=tab:>\ ,trail:+,eol:$
 let $NVIM_TUI_ENABLE_CURSORE_SHAPE=1
+"\\\\\\\\\\
+
+
+"highlight Pmenu ctermbg=gray guibg=gray
+"hi Normal guibg=NONE ctermbg=NONE
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set nowritebackup
+set nobackup
+set noswapfile
+set noundofile
+set noswapfile
+set nobackup
+set nobackup nowritebackup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set splitbelow
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:auto_save = 1  " enable AutoSave on Vim startup
 call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'http://github.com/tpope/vim-surround'
@@ -129,11 +152,6 @@ let g:coc_global_extensions =[
   \ 'coc-python',
   \ 'coc-rls']
 
-
-"highlight Pmenu ctermbg=gray guibg=gray
-"hi Normal guibg=NONE ctermbg=NONE
-
-
 function! ToggleGUICruft()
   if &guioptions=='i'
     exec('set guioptions=imTrL')
@@ -202,29 +220,14 @@ autocmd CompleteDone * pclose
 
 set guifont=consolas:h12
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 
 colorscheme gruvbox
 
-set nowritebackup
-set nobackup
-set noswapfile
-set noundofile
-set noswapfile
-set nobackup
-set nobackup nowritebackup
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:auto_save = 1  " enable AutoSave on Vim startup
 augroup ft_markdown
   au!
   au FileType markdown let b:auto_save = 1
 augroup END
 let g:palenight_terminal_italics=1
-set splitbelow
+
