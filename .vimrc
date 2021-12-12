@@ -50,29 +50,6 @@ set mouse=a
 set guicursor=n-v-c-sm:block,
 set list listchars=tab:>\ ,trail:+,eol:$
 let $NVIM_TUI_ENABLE_CURSORE_SHAPE=1
-"\\\\\\\\\\
-
-
-"highlight Pmenu ctermbg=gray guibg=gray
-"hi Normal guibg=NONE ctermbg=NONE
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set nowritebackup
-set nobackup
-set noswapfile
-set noundofile
-set noswapfile
-set nobackup
-set nobackup nowritebackup
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-set splitbelow
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:auto_save = 1  " enable AutoSave on Vim startup
 call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'http://github.com/tpope/vim-surround'
@@ -82,7 +59,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/lifepillar/pgsql.vim'
     Plug 'https://github.com/ap/vim-css-color'
     Plug 'https://github.com/rafi/awesome-vim-colorschemes'
-    Plug 'https://github.com/ryanoasis/vim-devicons'
+"    Plug 'https://github.com/ryanoasis/vim-devicons'
     Plug 'https://github.com/tc50cal/vim-terminal'
     Plug 'https://github.com/preservim/tagbar'
     Plug 'https://github.com/terryma/vim-multiple-cursors'
@@ -104,6 +81,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/metakirby5/codi.vim.git'
     Plug 'lsdr/monokai'
     Plug 'chemzqm/vim-jsx-improve' 
+    Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'sheerun/vim-polyglot'
     Plug 'haishanh/night-owl.vim'
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'thosakwe/vim-flutter' 
@@ -112,6 +92,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/907th/vim-auto-save.git'
     Plug 'https://github.com/vim-syntastic/syntastic.git'
     Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
+    Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+    Plug 'jbgutierrez/vim-babel'
+    Plug 'mattn/webapi-vim'
 call plug#end()
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
@@ -119,15 +102,16 @@ autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescap
 autocmd FileType javascript  map <buffer> <F5> :w<CR>:exec '!node' shellescape(@%, 1)<CR>
 autocmd FileType javascript imap <buffer> <F5> <esc>:w<CR>:exec '!node' shellescape(@%, 1)<CR>
 
-autocmd FileType cpp map <buffer>  <F5>  :w<CR>:exec '!g++' shellescape(@%, 1)<CR>
+autocmd FileType cpp map <buffer>  <F5>  :w<CR>:exec '!g++ % -o lol ' shellescape(@%, 1)<CR>
 autocmd FileType cpp  imap <buffer> <F5>  <esc>:w<CR>:exec '!g++' shellescape(@%, 1)<CR>
 
-autocmd FileType c map <buffer>  <F5>  :w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
+autocmd FileType c map <buffer>  <F5>  :w<CR>:exec '!gcc % -o lol' shellescape(@%, 1)<CR>
 autocmd FileType c  imap <buffer> <F5>  <esc>:w<CR>:exec '!gcc' shellescape(@%, 1)<CR>
 
 
-map <F8> : !gcc % &&  echo file compiled<CR>
-map <F10> : !g++ % &&  echo file compiled<CR>
+
+"map <F8> : !gcc % &&  echo file compiled<CR>
+"map <F10> : !g++ % &&  echo file compiled<CR>
 let g:coc_global_extensions =[
   \ 'coc-pairs',
   \ 'coc-eslint',
@@ -139,7 +123,6 @@ let g:coc_global_extensions =[
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-highlight',
-  \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-java',
   \ 'coc-vimtex',
@@ -150,7 +133,12 @@ let g:coc_global_extensions =[
   \ 'coc-tailwindcss',
   \ 'coc-markdownlint',
   \ 'coc-python',
-  \ 'coc-rls']
+  \ 'coc-rls',
+  \ 'coc-snippets']
+
+"highlight Pmenu ctermbg=gray guibg=gray
+"hi Normal guibg=NONE ctermbg=NONE
+
 
 function! ToggleGUICruft()
   if &guioptions=='i'
@@ -200,11 +188,13 @@ let g:coc_snippet_next = '<tab>'
 let mapleader = ","
 nmap <leader>n :NERDTree<cr>
 nmap <leader>q :q<cr>
-nmap <leader>p "+gP<cr>
-nmap <leader>sq  :wq!<cr>
-nmap <leader>,  :w!<cr>
-nmap <leader>t  term<cr>
-
+nmap <leader>pa "+gP<cr>
+nmap <leader>sq :wq!<cr>
+nmap <leader>, :w!<cr>
+nmap <leader>t :term<cr>
+nmap <leader>p :Prettier<cr>
+nmap <leader>a :let g:auto_save = 0<cr>
+nmap <leader>b :let g:auto_save = 1<cr>
 
 set belloff=all
 autocmd GUIEnter * set vb t_vb=
@@ -218,16 +208,33 @@ set completefunc=tailwind#complete
 nnoremap <leader>tt :set completefunc=tailwind#complete<cr>
 autocmd CompleteDone * pclose
 
-set guifont=consolas:h12
+set guifont=consolas:h11
 
-
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 colorscheme gruvbox
 
+set nowritebackup
+set nobackup
+set noswapfile
+set noundofile
+set noswapfile
+set nobackup
+set nobackup nowritebackup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:auto_save = 0
 augroup ft_markdown
   au!
   au FileType markdown let b:auto_save = 1
 augroup END
 let g:palenight_terminal_italics=1
-
+set splitbelow
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+"for coc config file copy ben awads one
