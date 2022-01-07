@@ -55,7 +55,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'http://github.com/tpope/vim-surround'
     Plug 'https://github.com/preservim/nerdtree'
     Plug 'https://github.com/tpope/vim-commentary'
-    Plug 'https://github.com/vim-airline/vim-airline'
+    Plug 'https://github.com/itchyny/lightline.vim'
     Plug 'https://github.com/lifepillar/pgsql.vim'
     Plug 'https://github.com/ap/vim-css-color'
     Plug 'https://github.com/rafi/awesome-vim-colorschemes'
