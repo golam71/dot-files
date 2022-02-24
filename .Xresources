@@ -1,0 +1,99 @@
+
+! ## Enable a color supported XTerm ##
+XTerm.termName: xterm-256color
+
+! ## Set xterm window size ##
+XTerm*VT100.geometry: 136x62
+
+! ## Set font and fontsize ##
+XTerm*faceName: Fantasque Mono Sans
+XTerm*faceSize: 12
+
+! VT Font Menu: Unreadable
+XTerm*faceSize1: 8
+! VT Font Menu: Tiny
+XTerm*faceSize2: 10
+! VT Font Menu: Small
+XTerm*faceSize3: 12
+! VT Font Menu: Medium
+XTerm*faceSize4: 16
+! VT Font Menu: Large
+XTerm*faceSize5: 22
+! VT Font Menu: Huge
+XTerm*faceSize6: 24
+
+! ## Scrollbar ##
+XTerm*vt100.scrollBar: false
+
+! Do not scroll when there is new input
+XTerm*scrollTtyOutput: false
+
+! Scrolling by using Shift-PageUp / Shift-PageDown or mousewheel by default ##
+! Lines of output you can scroll back over
+XTerm*saveLines: 15000
+
+! Enable copy/paste hotkeyes (mouse highlight = copy ,  shift+Insert = paste)
+XTerm*selectToClipboard: true
+
+! ## Select text ##
+XTerm*highlightSelection: true
+! Remove trailing spaces
+XTerm*trimSelection: true
+
+! ## Keybindings ##
+XTerm*vt100.translations: #override \n\
+  Ctrl <Key>-: smaller-vt-font() \n\
+  Ctrl <Key>+: larger-vt-font() \n\
+  Ctrl <Key>0: set-vt-font(d) \n\
+  Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+  Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+! ~~~~~~~~~~~~~~~~~~
+! ## Color Themes ## 
+! ~~~~~~~~~~~~~~~~~~
+!
+! based on snazzy color theme
+! https://github.com/olstenlarck/urxvt-xterm-snazzy/blob/7c34009a19ade65271e26ef065c678b0fa2abd0d/.Xdefaults
+!
+XTerm*title: XTerminal
+XTerm*background:  #000000
+XTerm*foreground:  #00ff00
+
+! original #86a2b0
+!XTerm*colorUL: #dfbdc4
+!XTerm*underlineColor: #6e4b35
+
+! ! black
+XTerm*color0  : #000000
+XTerm*color8  : #000000
+!
+! ! red
+XTerm*color1  : #ff0000
+XTerm*color9  : #ff0000
+!
+! ! green
+XTerm*color2  : #00ff00
+XTerm*color10 : #00ff00
+!
+! ! yellow
+XTerm*color3  : #ffff00
+XTerm*color11 : #ffff00
+!
+! ! blue
+XTerm*color4  : #00fbff
+XTerm*color12 : #00fbff
+!
+! ! magenta
+XTerm*color5  : #ff6ac1
+XTerm*color13 : #ff6ac1
+!
+! ! cyan
+XTerm*color6  : #0905ff
+XTerm*color14 : #0905ff
+!
+! ! white
+XTerm*color7  : #ffffff
+XTerm*color15 : #ffffff
+
+Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
