@@ -1,39 +1,3 @@
-source $VIMRUNTIME/vimrc_example.vim
-if &diffopt !~# 'internal'
-  set diffexpr=MyDiff()
-endif
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg1 = substitute(arg1, '!', '\!', 'g')
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg2 = substitute(arg2, '!', '\!', 'g')
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let arg3 = substitute(arg3, '!', '\!', 'g')
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      if empty(&shellxquote)
-        let l:shxq_sav = ''
-        set shellxquote&
-      endif
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  let cmd = substitute(cmd, '!', '\!', 'g')
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
-  if exists('l:shxq_sav')
-    let &shellxquote=l:shxq_sav
-  endif
-endfunction
 set number
 set expandtab
 set autoindent
@@ -59,7 +23,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/lifepillar/pgsql.vim'
     Plug 'https://github.com/ap/vim-css-color'
     Plug 'https://github.com/rafi/awesome-vim-colorschemes'
-"    Plug 'https://github.com/ryanoasis/vim-devicons'
+    Plug 'https://github.com/ryanoasis/vim-devicons'
     Plug 'https://github.com/tc50cal/vim-terminal'
     Plug 'https://github.com/preservim/tagbar'
     Plug 'https://github.com/terryma/vim-multiple-cursors'
@@ -95,6 +59,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'jbgutierrez/vim-babel'
     Plug 'mattn/webapi-vim'
+    Plug 'https://github.com/projekt0n/github-nvim-theme.git'
 call plug#end()
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
@@ -136,8 +101,8 @@ let g:coc_global_extensions =[
   \ 'coc-rls',
   \ 'coc-snippets']
 
-"highlight Pmenu ctermbg=gray guibg=gray
-"hi Normal guibg=NONE ctermbg=NONE
+hi  Pmenu ctermbg=gray guibg=gray
+hi Normal guibg=grey ctermbg=grey
 
 
 function! ToggleGUICruft()
@@ -153,7 +118,7 @@ set guioptions=i
 map <silent> <C-q> :q!<CR>
 
 
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
 let g:jsx_ext_required = 1
@@ -212,7 +177,7 @@ set guifont=consolas:h11
 
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-colorscheme gruvbox
+colorscheme default
 
 set nowritebackup
 set nobackup
@@ -237,4 +202,9 @@ augroup END
 let g:palenight_terminal_italics=1
 set splitbelow
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-"for coc config file copy ben awads one
+"for coc config file copy ben awads oned
+set laststatus=0
+:split term://zsh
+:highlight Pmenu ctermbg=green guibg=gray
+autocmd VimEnter * NERDTree | wincmd p
+
