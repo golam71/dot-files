@@ -11,15 +11,16 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set mouse=a
-set guicursor=n-v-c-sm:block,
-set list listchars=tab:>\ ,trail:+,eol:$
+set background=dark
+"set guicursor=n-v-c-sm:block,
+"set list listchars=tab:>\ ,trail:+,eol:$
 let $NVIM_TUI_ENABLE_CURSORE_SHAPE=1
 call plug#begin('~/.vim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'http://github.com/tpope/vim-surround'
     Plug 'https://github.com/preservim/nerdtree'
     Plug 'https://github.com/tpope/vim-commentary'
-    Plug 'https://github.com/itchyny/lightline.vim'
+    Plug 'itchyny/lightline.vim'
     Plug 'https://github.com/lifepillar/pgsql.vim'
     Plug 'https://github.com/ap/vim-css-color'
     Plug 'https://github.com/rafi/awesome-vim-colorschemes'
@@ -58,8 +59,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/drewtempelmeyer/palenight.vim.git'
     Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
     Plug 'jbgutierrez/vim-babel'
-    Plug 'mattn/webapi-vim'
-    Plug 'https://github.com/projekt0n/github-nvim-theme.git'
+    Plug 'mattn/webapi-vim',
 call plug#end()
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F5> <esc>:w<CR>:exec '!python' shellescape(@%, 1)<CR>
@@ -101,8 +101,8 @@ let g:coc_global_extensions =[
   \ 'coc-rls',
   \ 'coc-snippets']
 
-hi  Pmenu ctermbg=gray guibg=gray
-hi Normal guibg=grey ctermbg=grey
+"highlight Pmenu ctermbg=gray guibg=gray
+"hi Normal guibg=NONE ctermbg=NONE
 
 
 function! ToggleGUICruft()
@@ -118,7 +118,7 @@ set guioptions=i
 map <silent> <C-q> :q!<CR>
 
 
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
 let g:jsx_ext_required = 1
@@ -175,9 +175,9 @@ autocmd CompleteDone * pclose
 
 set guifont=consolas:h11
 
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-colorscheme default
+colorscheme challenger_deep
 
 set nowritebackup
 set nobackup
@@ -199,12 +199,7 @@ augroup ft_markdown
   au!
   au FileType markdown let b:auto_save = 1
 augroup END
-let g:palenight_terminal_italics=1
 set splitbelow
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-"for coc config file copy ben awads oned
-set laststatus=0
-:split term://zsh
-:highlight Pmenu ctermbg=green guibg=gray
-autocmd VimEnter * NERDTree | wincmd p
-
+"for coc config file copy ben awads one)
+set laststatus=2
