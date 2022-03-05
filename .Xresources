@@ -1,6 +1,9 @@
 
 ! ## Enable a color supported XTerm ##
 XTerm.termName: xterm-256color
+!!!!!
+XTerm.VT100.cursorBlink:true
+!!!!
 
 ! ## Set xterm window size ##
 XTerm*VT100.geometry: 136x62
@@ -52,48 +55,108 @@ XTerm*vt100.translations: #override \n\
 ! ## Color Themes ## 
 ! ~~~~~~~~~~~~~~~~~~
 !
-! based on snazzy color theme
-! https://github.com/olstenlarck/urxvt-xterm-snazzy/blob/7c34009a19ade65271e26ef065c678b0fa2abd0d/.Xdefaults
-!
-XTerm*title: XTerminal
-XTerm*background:  #000000
-XTerm*foreground:  #00ff00
+XTerm*title: XTerm
+!XTerm*background:  #000000
+!XTerm*foreground:  #00ff00
 
 ! original #86a2b0
 !XTerm*colorUL: #dfbdc4
 !XTerm*underlineColor: #6e4b35
 
-! ! black
-XTerm*color0  : #000000
-XTerm*color8  : #000000
-!
-! ! red
-XTerm*color1  : #ff0000
-XTerm*color9  : #ff0000
-!
-! ! green
-XTerm*color2  : #00ff00
-XTerm*color10 : #00ff00
-!
-! ! yellow
-XTerm*color3  : #ffff00
-XTerm*color11 : #ffff00
-!
-! ! blue
-XTerm*color4  : #00fbff
-XTerm*color12 : #00fbff
-!
-! ! magenta
-XTerm*color5  : #ff6ac1
-XTerm*color13 : #ff6ac1
-!
-! ! cyan
-XTerm*color6  : #0905ff
-XTerm*color14 : #0905ff
-!
-! ! white
-XTerm*color7  : #ffffff
-XTerm*color15 : #ffffff
+!XTerm*color0  : #000000
+!XTerm*color8  : #000000
+
+!XTerm*color1  : #ff0000
+!XTerm*color9  : #ff0000
+
+!XTerm*color2  : #00ff00
+!XTerm*color10 : #00ff00
+
+
+!XTerm*color3  : #ffff00
+!XTerm*color11 : #ffff00
+
+!XTerm*color4  : #00fbff
+!XTerm*color12 : #00fbff
+
+!XTerm*color5  : #ff6ac1
+!XTerm*color13 : #ff6ac1
+
+!XTerm*color6  : #0905ff
+!XTerm*color14 : #0905ff
+
+!XTerm*color7  : #ffffff
+!XTerm*color15 : #ffffff
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!gihub
+!# github colors for Kitty
+
+XTerm*background : #0d1117
+XTerm*foreground : #b3b1ad
+XTerm*cursor     : #73b7f2
+
+
+XTerm*color0  :#484f58
+XTerm*color1  :#ff7b72
+XTerm*color2  :#3fb950
+XTerm*color3  :#d29922
+XTerm*color4  :#58a6ff
+XTerm*color5  :#bc8cff
+XTerm*color6  :#39c5cf
+XTerm*color7  :#b1bac4
+
+XTerm*color8  :#6e7681
+XTerm*color9  :#ffa198
+XTerm*color10 :#56d364
+XTerm*color11 :#e3b341
+XTerm*color12 :#79c0ff
+XTerm*color13 :#d2a8ff
+XTerm*color14 :#56d4dd
+XTerm*color15 :#f0f6fc
+
+XTerm*color16 :#e3b341
+XTerm*color17 :#ffa198
+!!!!!!!!!!!!!
+
+
+
+
+
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Hack the box
+!XTerm*background:  #1a2332
+!XTerm*foreground:  #a4b1cd
+!XTerm*cursorColor: #313f55
+
+!XTerm*color0:  #000000
+!XTerm*color8:  #666666
+!XTerm*color1:  #ff3e3e
+!XTerm*color9:  #ff8484
+!XTerm*color2:  #9fef00
+!XTerm*color10: #c5f467
+!XTerm*color3:  #ffaf00
+!XTerm*color11: #ffcc5c
+!XTerm*color4:  #004cff
+!XTerm*color12: #5cb2ff
+!XTerm*color5:  #9f00ff
+!XTerm*color13: #c16cfa
+!XTerm*color6:  #2ee7b6
+!XTerm*color14: #5cecc6
+!XTerm*color7:  #ffffff
+!XTerm*color15: #ffffff
+
+
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
 Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
