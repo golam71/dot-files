@@ -1,4 +1,3 @@
-
 ! ## Enable a color supported XTerm ##
 XTerm.termName: xterm-256color
 !!!!!
@@ -9,8 +8,9 @@ XTerm.VT100.cursorBlink:true
 XTerm*VT100.geometry: 136x62
 
 ! ## Set font and fontsize ##
-XTerm*faceName: Fantasque Mono Sans
-XTerm*faceSize: 12
+XTerm*faceName: DejaVu Sans Mono
+!Mono Sans
+XTerm*faceSize: 13
 
 ! VT Font Menu: Unreadable
 XTerm*faceSize1: 8
@@ -56,66 +56,66 @@ XTerm*vt100.translations: #override \n\
 ! ~~~~~~~~~~~~~~~~~~
 !
 XTerm*title: XTerm
-!XTerm*background:  #000000
-!XTerm*foreground:  #00ff00
-
+XTerm*background:  #000000
+XTerm*foreground:  #00ff00
+xterm*cursorColor: #ff0000
 ! original #86a2b0
 !XTerm*colorUL: #dfbdc4
 !XTerm*underlineColor: #6e4b35
 
-!XTerm*color0  : #000000
-!XTerm*color8  : #000000
+XTerm*color0  : #000000
+XTerm*color8  : #000000
 
-!XTerm*color1  : #ff0000
-!XTerm*color9  : #ff0000
+XTerm*color1  : #ff0000
+XTerm*color9  : #ff0000
 
-!XTerm*color2  : #00ff00
-!XTerm*color10 : #00ff00
+XTerm*color2  : #00ff00
+XTerm*color10 : #00ff00
 
 
-!XTerm*color3  : #ffff00
-!XTerm*color11 : #ffff00
+XTerm*color3  : #ffff00
+XTerm*color11 : #ffff00
 
-!XTerm*color4  : #00fbff
-!XTerm*color12 : #00fbff
+XTerm*color4  : #00fbff
+XTerm*color12 : #00fbff
 
-!XTerm*color5  : #ff6ac1
-!XTerm*color13 : #ff6ac1
+XTerm*color5  : #ff6ac1
+XTerm*color13 : #ff6ac1
 
-!XTerm*color6  : #0905ff
-!XTerm*color14 : #0905ff
+XTerm*color6  : #0905ff
+XTerm*color14 : #0905ff
 
-!XTerm*color7  : #ffffff
-!XTerm*color15 : #ffffff
+XTerm*color7  : #ffffff
+XTerm*color15 : #ffffff
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !gihub
 !# github colors for Kitty
 
-XTerm*background : #0d1117
-XTerm*foreground : #b3b1ad
-XTerm*cursor     : #73b7f2
+!XTerm*background : #0d1117
+!XTerm*foreground : #b3b1ad
+!XTerm*cursorColor     : #73b7f2
 
 
-XTerm*color0  :#484f58
-XTerm*color1  :#ff7b72
-XTerm*color2  :#3fb950
-XTerm*color3  :#d29922
-XTerm*color4  :#58a6ff
-XTerm*color5  :#bc8cff
-XTerm*color6  :#39c5cf
-XTerm*color7  :#b1bac4
+!XTerm*color0  :#484f58
+!XTerm*color1  :#ff7b72
+!XTerm*color2  :#3fb950
+!XTerm*color3  :#d29922
+!XTerm*color4  :#58a6ff
+!XTerm*color5  :#bc8cff
+!XTerm*color6  :#39c5cf
+!XTerm*color7  :#b1bac4
 
-XTerm*color8  :#6e7681
-XTerm*color9  :#ffa198
-XTerm*color10 :#56d364
-XTerm*color11 :#e3b341
-XTerm*color12 :#79c0ff
-XTerm*color13 :#d2a8ff
-XTerm*color14 :#56d4dd
-XTerm*color15 :#f0f6fc
+!XTerm*color8  :#6e7681
+!XTerm*color9  :#ffa198
+!XTerm*color10 :#56d364
+!XTerm*color11 :#e3b341
+!XTerm*color12 :#79c0ff
+!XTerm*color13 :#d2a8ff
+!XTerm*color14 :#56d4dd
+!XTerm*color15 :#f0f6fc
 
-XTerm*color16 :#e3b341
-XTerm*color17 :#ffa198
+!XTerm*color16 :#e3b341
+!XTerm*color17 :#ffa198
 !!!!!!!!!!!!!
 
 
