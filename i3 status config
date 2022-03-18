@@ -9,27 +9,28 @@
 general {
         colors = true
         interval = 1
+color_good = "#00fbff"
+color_degraded = "#00ff00"
 }
 
 order += "tztime local"
 order += "memory"
 order += "wireless _first_"
 
+
 wireless _first_ {
-        format_up = " %quality %ip"
+        format_up = "%quality %ip"
         format_down = "W: down"
 }
 
 
 memory {
-    format= " RAM: %used "
-    threshold_degraded = "300M"
-    format_degraded = " RAM: %available "
+    format= " RAM: %used"
 }
 
 
 
 tztime local {
-        format = " %l:%M:%S %p || %a %d-%m-%y"
+        format = " %l:%M:%S %p | %a %d-%m-%y"
 }
 
