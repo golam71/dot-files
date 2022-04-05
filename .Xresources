@@ -54,7 +54,7 @@ XTerm*vt100.translations: #override \n\
 ! ~~~~~~~~~~~~~~~~~~
 ! ## Color Themes ## 
 ! ~~~~~~~~~~~~~~~~~~
-! golam's high contrast theme 
+! golams high contrast theme 
 XTerm*title: XTerm
 XTerm*background:  #000000
 XTerm*foreground:  #00ff00
