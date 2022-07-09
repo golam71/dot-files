@@ -1,4 +1,5 @@
 import os
+os.system("")
 print ("full update on the systejm and then installing yay & git \n")
 os.system("sudo pacman -Syu && sudo pacman -S --needed git base-devel && sudo pacman -S git && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && yay -Syu")
 print ("I use chadwm by siduck its a dwm fork but is cool \n now installing packages that are needed to install chadwm \n")
@@ -23,7 +24,7 @@ os.system("cp -r ~/.config/chadwm/rofi ~/.config/")
 print ("now installing st")
 
 os.system("cd ..") #getting back to chad directory 
-os.system("git clone https://github.com/siduck/st.git && cd st && sudo make clean install")
+os.system("https://github.com/siduck/tabbed.git && cd tabbed && sudo make clean install")
 os.system("wget https://github.com/siduck/chadwm/blob/main/.Xresources") #getting siducks onedark .Xresources
 os.system("xrdb merge .Xresources && mv .Xresources ~")
 
@@ -31,7 +32,16 @@ print ("Now installing NVchad")
 
 os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ; nvim")
 
-print ("""Assalamualykum
+
+print ("Now getting wallpapers")
+os.system("cd && mkdir Pictures/Wallpapers")
+os.system("")
+os.system("")
+os.system("")
+os.system("")
+
+print ("""
+Assalamualykum
 it has finished
 if u have any issues or bugs or problems suggestion pls make a issue here https://github.com/golam71/dot-files/file.py
 """)
