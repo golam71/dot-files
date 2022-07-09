@@ -34,11 +34,18 @@ os.system("git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 ;
 
 
 print ("Now getting wallpapers")
-os.system("cd && mkdir Pictures/Wallpapers")
-os.system("")
-os.system("")
-os.system("")
-os.system("")
+os.system("cd && mkdir Pictures/Wallpapers cd Pictures/Wallpapers")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384632-834ab716-649c-4c88-b5e1-d80ca798e6db.jpg")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384646-5fce8f8e-882d-433d-a212-f0cc64eec563.png")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384672-993c309b-a8b0-4c31-9148-e1d5e1cb4e0e.png")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384688-837b150e-fb3a-4292-bc3a-ed1f1db4760f.png")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384705-732072db-ced5-4d11-b6bf-7e88138bae15.jpg")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384724-fd3a0512-5da1-4079-a437-bc3cc3971c55.png")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384730-1ba25368-d5fb-4b2c-9d8e-0933b1b2f3d1.png")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384737-a9ac14c8-fd0f-4947-8475-116348540d88.jpg")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384752-11d478e3-84ac-4098-8e64-2df6101d5500.png")
+os.system("wget https://user-images.githubusercontent.com/59060246/159384791-c28b17cb-9acc-4c55-89dc-49edd4bec765.png")
+
 
 print ("""
 Assalamualykum
